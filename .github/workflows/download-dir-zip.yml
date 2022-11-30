@@ -14,7 +14,7 @@ jobs:
           echo $PWD
           sudo mkdir -p /lede
           sudo chown $USER:$GROUPS /lede
-          sudo cd /lede
+          cd /lede
           git clone https://github.com/coolsnowwolf/lede
 
       - name: archive release
