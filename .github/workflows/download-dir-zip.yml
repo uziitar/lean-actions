@@ -1,24 +1,22 @@
 name: 'download dir with zip'
 jobs:
-  push-core:
+  release:
     run-on: ubuntu-18.04.6
     steps:
-      release:
-        - name: 'checkout'
-        - uses: actions/checkout@v3
+      - name: 'checkout'
+      - uses: actions/checkout@v3
 
-        - name: Clone code
-        - run: |
-            echo $PWD
-            sudo mkdir -p /lede
-            sudo chown $USER:$GROUPS /lede
-            sudo cd /lede
-            git clone https://github.com/coolsnowwolf/lede
+      - name: Clone code
+      - run: |
+          echo $PWD
+          sudo mkdir -p /lede
+          sudo chown $USER:$GROUPS /lede
+          sudo cd /lede
+          git clone https://github.com/coolsnowwolf/lede
 
-        - name: archive release
-          uses: thedoctor0/zip-release@main
-          with:
-            path: /lede
-            type: 'zip'
-            filename: 'openwrt.zip'
-
+      - name: archive release
+      - uses: thedoctor0/zip-release@main
+        with:
+          path: /lede
+          type: 'zip'
+          filename: 'openwrt.zip'
