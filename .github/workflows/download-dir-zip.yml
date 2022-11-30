@@ -1,5 +1,6 @@
 name: 'download dir with zip'
 on: 
+  repository_dispatch:
   workflow_dispatch:
 jobs:
   release:
