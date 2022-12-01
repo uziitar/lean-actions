@@ -20,12 +20,12 @@ jobs:
           sudo mkdir openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
-          sudo touch .config
-          ls -l .config
+          sudo touch config.txt
+          ls -l config.txt
           
       - name: Upload config
         uses: actions/upload-artifact@main
         with:
           name: config
-          path: openwrt/.config
+          path: openwrt/config.txt
           if-no-files-found: error
