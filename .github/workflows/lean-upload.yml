@@ -22,9 +22,6 @@ jobs:
           cd openwrt
           sudo touch .config
           ls -l .config
-          sudo chmod 770 .config
-          ls -l .config >> .config
-          ls -a
           
       - name: Upload config
         uses: actions/upload-artifact@main
