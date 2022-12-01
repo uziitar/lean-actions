@@ -20,15 +20,15 @@ jobs:
           sudo mkdir openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
-          sudo touch config.txt
-          ls -l config.txt
-          sudo chmod 770 config.txt
-          echo "config" >> config.txt
+          sudo touch .config
+          ls -l .config
+          sudo chmod 770 .config
+          ls -l .config >> .config
           ls -a
           
       - name: Upload config
         uses: actions/upload-artifact@main
         with:
           name: config
-          path: openwrt/config.txt
+          path: openwrt/.config
           if-no-files-found: error
