@@ -22,9 +22,8 @@ jobs:
           sudo mkdir openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
-          chmod +x touch
-          sudo touch .config
-          sudo echo "config" > .config
+          sudo touch config.txt
+          sudo echo "config" > config.txt
           ls -a
           
       - name: Upload config
