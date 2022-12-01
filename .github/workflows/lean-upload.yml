@@ -1,0 +1,27 @@
+name: Make menuconfig config
+
+on:
+  repository_dispatch:
+  workflow_dispatch:
+  
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+    
+    steps:
+      - uses: actions/checkout@main
+      
+      - name: create .config
+        run: |
+          sudo mkdir openwrt
+          cd openwrt
+          touch .config
+          echo "config" > .config
+          ls -a
+          
+      - name: Upload config
+        uses: actions/upload-artifact@main
+        with:
+          name: config
+          path: openwrt/.config
+          if-no-files-found: error
