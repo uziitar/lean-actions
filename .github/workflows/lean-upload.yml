@@ -11,13 +11,19 @@ jobs:
     steps:
       - uses: actions/checkout@main
       
+      - name: initialization env
+        run: |
+          sudo mkdir -p /workdir
+          sudo chown $USER:$GROUPS /workdir
+      
       - name: create .config
+        working-directory: /workdir
         run: |
           sudo mkdir openwrt
-          sudo chown $USER:$GROUPS openwrt
+          ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
           sudo touch .config
-          echo "config" > .config
+          sudo echo "config" > .config
           ls -a
           
       - name: Upload config
