@@ -20,6 +20,9 @@ jobs:
           sudo mkdir openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
+          sudo touch config.txt
+          ls -l config.txt
+          sudo chmod 770 config.txt
           sudo echo "config" > config.txt
           ls -a
           
