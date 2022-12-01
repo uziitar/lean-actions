@@ -23,7 +23,7 @@ jobs:
           sudo touch .config
           ls -l .config
           sudo mkdir bin
-          cp .config bin/.config
+          sudo cp .config bin/.config
         
       - name: Upload bin directory
         uses: actions/upload-artifact@main
