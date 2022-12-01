@@ -20,7 +20,6 @@ jobs:
           sudo mkdir openwrt
           ln -sf /workdir/openwrt $GITHUB_WORKSPACE/openwrt
           cd openwrt
-          > config.txt
           echo "config" > config.txt
           ls -a
           
@@ -28,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: config
-          path: openwrt/.config
+          path: openwrt/config.txt
           if-no-files-found: error
