@@ -23,9 +23,22 @@ jobs:
           sudo touch config.txt
           ls -l config.txt
           
-      - name: Upload config
-        uses: actions/upload-artifact@main
+      - name: archive release
+        uses: thedoctor0/zip-release@main
         with:
-          name: Openwrt_Config
-          path: $GITHUB_WORKSPACE/openwrt/config.txt
+          path: openwrt
+          type: 'zip'
+          filename: 'openwrt.zip'
+        
+      - name: echo dir
+        run: |
+          echo $PWD
+          ls -a
+          echo "FILE_NAME=openwrt.zip" >> $GITHUB_ENV
+      - name: Upload zip directory
+        uses: actions/upload-artifact@main
+        if: success() && !cancelled()
+        with:
+          name: OpenWrt_Packages
+          path: ${{ env.FILE_NAME }}
           if-no-files-found: error
