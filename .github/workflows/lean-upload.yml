@@ -27,5 +27,5 @@ jobs:
         uses: actions/upload-artifact@main
         with:
           name: Openwrt_Config
-          path: openwrt/config.txt
+          path: $GITHUB_WORKSPACE/openwrt/config.txt
           if-no-files-found: error
