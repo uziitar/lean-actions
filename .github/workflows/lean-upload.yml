@@ -26,6 +26,6 @@ jobs:
       - name: Upload config
         uses: actions/upload-artifact@main
         with:
-          name: config
+          name: Openwrt_Config
           path: openwrt/config.txt
           if-no-files-found: error
