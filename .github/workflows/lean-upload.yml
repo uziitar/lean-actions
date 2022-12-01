@@ -1,4 +1,4 @@
-name: Make menuconfig config
+name: upload config
 
 on:
   repository_dispatch:
@@ -15,7 +15,7 @@ jobs:
         run: |
           sudo mkdir openwrt
           cd openwrt
-          touch .config
+          sudo touch .config
           echo "config" > .config
           ls -a
           
