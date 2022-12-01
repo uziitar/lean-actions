@@ -23,7 +23,7 @@ jobs:
           sudo touch config.txt
           ls -l config.txt
           sudo chmod 770 config.txt
-          sudo echo "config" > config.txt
+          echo "config" >> config.txt
           ls -a
           
       - name: Upload config
